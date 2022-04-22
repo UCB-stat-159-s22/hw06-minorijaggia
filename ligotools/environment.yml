@@ -1,0 +1,4 @@
+name: readligo
+dependencies:
+  - python>=2.7
+  - numpy>=1.16
