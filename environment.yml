@@ -1,10 +1,12 @@
 name: ligo
 dependencies:
   - python=2.7
+  - pytest=4
   - decorator=4.4
   - ipykernel=4.8
   - numpy=1.16
   - scipy=1.2
   - matplotlib=2.2
   - h5py=2.10
+  #- ligotools=0.0.1
   
