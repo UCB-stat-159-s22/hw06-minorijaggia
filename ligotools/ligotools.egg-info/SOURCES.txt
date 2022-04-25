@@ -8,3 +8,4 @@ ligotools.egg-info/SOURCES.txt
 ligotools.egg-info/dependency_links.txt
 ligotools.egg-info/requires.txt
 ligotools.egg-info/top_level.txt
+ligotools.egg-info/.ipynb_checkpoints/requires-checkpoint.txt
