@@ -7,9 +7,6 @@ import h5py
 import json
 import matplotlib.pyplot as plt
 import matplotlib.mlab as mlab
-from scipy.io import wavfile
-
-
 
 
 # function to whiten data
