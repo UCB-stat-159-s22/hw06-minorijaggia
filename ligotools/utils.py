@@ -5,11 +5,15 @@ from scipy.interpolate import interp1d
 from scipy.signal import butter, filtfilt, iirdesign, zpk2tf, freqz
 import h5py
 import json
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.mlab as mlab
 from scipy.io import wavfile
 
-
+#hide warnings
+import warnings
+warnings.filterwarnings("ignore")
 
 
 # function to whiten data
