@@ -3,7 +3,7 @@
 
 title: Homework 6
 author: Ligo Scientific Collaboration (LSC) and Minori Jaggia
-logo: logo.png
+logo: ligo_logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -29,4 +29,5 @@ html:
   use_repository_button: true
   
 launch_buttons:
-  binderhub_url: "https://mybinder.org" 
+  notebook_interface: classic
+  binderhub_url: "https://mybinder.org/v2/gh/UCB-stat-159-s22/hw06-minorijaggia.git/HEAD?labpath=index.ipynb" 
