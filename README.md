@@ -1,4 +1,4 @@
-## Fine-tuning reproduciblity of LIGO Black Hole signal tutorial, Part II
+# Fine-tuning reproduciblity of LIGO Black Hole signal tutorial, Part II
 
 ** Add Binder badge and link here**
 
