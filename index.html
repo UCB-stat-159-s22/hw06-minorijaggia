@@ -37,19 +37,20 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="/user/minorijaggia//proxy/absolute/8000/index.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Fine-tuning reproduciblity of LIGO Black Hole signal tutorial, Part II" href="README.html" />
@@ -621,43 +622,19 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing /home/jovyan/homework/hw06-minorijaggia
-  Preparing metadata (setup.py) ... ?25l
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+  Preparing metadata (setup.py) ... ?25ldone
 ?25hRequirement already satisfied: numpy in /srv/conda/envs/notebook/lib/python3.9/site-packages (from ligotools==0.0.1) (1.21.5)
 Building wheels for collected packages: ligotools
-  Building wheel for ligotools (setup.py) ... ?25l
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> |
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
-?25h  Created wheel for ligotools: filename=ligotools-0.0.1-py3-none-any.whl size=8819 sha256=ca1fd78a94049a73de0feb334fbe238aee88451d6eb9940da0374ac3f3c9726e
+  Building wheel for ligotools (setup.py) ... ?25ldone
+?25h  Created wheel for ligotools: filename=ligotools-0.0.1-py3-none-any.whl size=8758 sha256=45416ce0e786bc789e40ab1604e3dd58cdfd1ce0c60474563ecae5f75382aa38
   Stored in directory: /home/jovyan/.cache/pip/wheels/d4/47/b2/c127ba781d7f1e4ad4709a7165d743bbbfbef54229530dc4c0
 Successfully built ligotools
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: ligotools
+Installing collected packages: ligotools
   Attempting uninstall: ligotools
     Found existing installation: ligotools 0.0.1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Uninstalling ligotools-0.0.1:
+    Uninstalling ligotools-0.0.1:
       Successfully uninstalled ligotools-0.0.1
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed ligotools-0.0.1
+Successfully installed ligotools-0.0.1
 </pre></div>
 </div>
 </div>
@@ -701,10 +678,14 @@ The backend was *originally* set to &#39;module://ipykernel.pylab.backend_inline
     app.start()
   File &quot;/home/jovyan/envs/ligo/lib/python2.7/site-packages/ipykernel/kernelapp.py&quot;, line 486, in start
     self.io_loop.start()
-  File &quot;/home/jovyan/envs/ligo/lib/python2.7/site-packages/tornado/ioloop.py&quot;, line 1073, in start
-    handler_func(fd_obj, events)
+  File &quot;/home/jovyan/envs/ligo/lib/python2.7/site-packages/tornado/ioloop.py&quot;, line 1017, in start
+    self._run_callback(self._callbacks.popleft())
+  File &quot;/home/jovyan/envs/ligo/lib/python2.7/site-packages/tornado/ioloop.py&quot;, line 758, in _run_callback
+    ret = callback()
   File &quot;/home/jovyan/envs/ligo/lib/python2.7/site-packages/tornado/stack_context.py&quot;, line 300, in null_wrapper
     return fn(*args, **kwargs)
+  File &quot;/home/jovyan/envs/ligo/lib/python2.7/site-packages/zmq/eventloop/zmqstream.py&quot;, line 542, in &lt;lambda&gt;
+    self.io_loop.add_callback(lambda : self._handle_events(self.socket, 0))
   File &quot;/home/jovyan/envs/ligo/lib/python2.7/site-packages/zmq/eventloop/zmqstream.py&quot;, line 456, in _handle_events
     self._handle_recv()
   File &quot;/home/jovyan/envs/ligo/lib/python2.7/site-packages/zmq/eventloop/zmqstream.py&quot;, line 486, in _handle_recv
@@ -1453,17 +1434,15 @@ The LIGO Scientific Collaboration, the Virgo Collaboration, <a class="reference 
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For detector H1, maximum at 1126259462.4395 with SNR = 18.6, D_eff = 814.44, horizon = 1889.6 Mpc
+For detector L1, maximum at 1126259462.4324 with SNR = 13.2, D_eff = 999.74, horizon = 1650.6 Mpc
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For detector L1, maximum at 1126259462.4324 with SNR = 13.2, D_eff = 999.74, horizon = 1650.6 Mpc
-</pre></div>
-</div>
+<img alt="_images/index_36_1.png" src="_images/index_36_1.png" />
 <img alt="_images/index_36_2.png" src="_images/index_36_2.png" />
 <img alt="_images/index_36_3.png" src="_images/index_36_3.png" />
 <img alt="_images/index_36_4.png" src="_images/index_36_4.png" />
 <img alt="_images/index_36_5.png" src="_images/index_36_5.png" />
 <img alt="_images/index_36_6.png" src="_images/index_36_6.png" />
-<img alt="_images/index_36_7.png" src="_images/index_36_7.png" />
 </div>
 </div>
 <div class="section" id="notes-on-these-results">
