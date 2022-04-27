@@ -39,16 +39,15 @@ strain_L1_whiten = lg.whiten(strain_L1,psd_L1,dt)
 strain_L1_whitenbp = filtfilt(bb, ab, strain_L1_whiten) / normalization
 indxd = np.where((time >= tevent-deltat_sound) & (time < tevent+deltat_sound))
 
-
+#test lg.whiten function
 def test_whiten():
-	#test function
 	assert type(strain_L1_whiten) is np.ndarray
 	assert len(strain_L1_whiten) == 131072
 	assert np.mean(strain_L1_whiten) == -0.013534214208369824
 	assert np.std(strain_L1_whiten) == 3.9590876402985793
 
 
-
+#test lg.write_wavfile function
 def test_write_wavfile():
 	from scipy.io import wavfile
 	lg.write_wavfile(eventname+"_L1_whitenbp.wav",int(fs), strain_L1_whitenbp[indxd])
@@ -57,6 +56,7 @@ def test_write_wavfile():
 	assert type(file[1]) is np.ndarray
 	os.remove("./audio/" + eventname + "_L1_whitenbp.wav")
 
+#test lg.reqshift function
 def test_reqshift():
 	output = lg.reqshift(strain_L1_whitenbp,fshift=400,sample_rate=fs)
 	assert type(output) is np.ndarray
@@ -64,7 +64,7 @@ def test_reqshift():
 	assert np.mean(output) == 1.734723475976807e-18
 	assert np.std(output) == 8.436672642258083
 
-
+#test lg.plot function
 def test_plot():
 	#Load additional variables for plotting function
 	fnjson = "./data/BBH_events_v3.json"
